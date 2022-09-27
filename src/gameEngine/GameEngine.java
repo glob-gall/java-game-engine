@@ -7,7 +7,7 @@ public class GameEngine extends JFrame implements Runnable {
     public Draw drawModule;
     public char[][] pixels;
     public int width,height;
-
+    public int count=0;
     public GameEngine(Constants values){
         this.width = values.SCREEN_WIDTH;
         this.height = values.SCREEN_HEIGHT;
@@ -19,7 +19,14 @@ public class GameEngine extends JFrame implements Runnable {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addKeyListener(keyListener);
 
-        this.pixels = new char[values.SCREEN_WIDTH][values.SCREEN_HEIGHT];
+        char[][] pixels = new char[values.SCREEN_HEIGHT][values.SCREEN_WIDTH];
+
+        for (int i = 0; i < values.SCREEN_HEIGHT; i++) {
+            for (int j = 0; j < values.SCREEN_WIDTH; j++) {
+                pixels[i][j]=' ';
+            }
+        }
+        this.pixels = pixels;
 
         this.drawModule = new Draw(this,values.SCREEN_WIDTH, values.SCREEN_HEIGHT);
         this.setVisible(true);
@@ -27,12 +34,14 @@ public class GameEngine extends JFrame implements Runnable {
 
 
     private void update(double dt){
-        int teste = (int) dt/this.width;
-        int middle = (int) (this.height/2);
-
+        int middle = 200;
+        this.count++;
+        if (count < this.height){
+            this.pixels[this.count][middle] = '#';
+        }
         System.out.println(dt);
         drawModule.drawPixels(pixels);
-        this.pixels[teste][middle] = '#';
+
     }
 
     public void run() {
@@ -41,9 +50,13 @@ public class GameEngine extends JFrame implements Runnable {
             double time = Time.getTime();
             double deltaTime = time - lastFrameTime;
             lastFrameTime = time;
-
             update(deltaTime);
 
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

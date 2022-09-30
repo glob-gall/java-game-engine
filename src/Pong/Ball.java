@@ -1,3 +1,5 @@
+package Pong;
+
 public class Ball {
     public Rect rect;
     public Rect leftPaddle,rightPaddle;

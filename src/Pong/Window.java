@@ -1,6 +1,9 @@
+package Pong;
+
+import Pong.*;
+
 import javax.swing.JFrame;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class Window extends JFrame implements Runnable {
     public Graphics2D g2;

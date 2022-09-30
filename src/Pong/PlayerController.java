@@ -1,3 +1,8 @@
+package Pong;
+
+import Pong.Constants;
+import Pong.KL;
+
 import java.awt.event.KeyEvent;
 
 public class PlayerController {
@@ -27,7 +32,7 @@ public class PlayerController {
     }
 
     public void moveUp(double dt){
-        if (rect.y -Constants.PADDLE_SPEED * dt > Constants.TOOLBAR_HEIGHT)
+        if (rect.y - Constants.PADDLE_SPEED * dt > Constants.TOOLBAR_HEIGHT)
             this.rect.y -= Constants.PADDLE_SPEED * dt;
     }
     public void moveDown(double dt){

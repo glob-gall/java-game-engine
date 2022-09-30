@@ -1,3 +1,5 @@
+package Pong;
+
 import java.awt.*;
 
 public class Constants {

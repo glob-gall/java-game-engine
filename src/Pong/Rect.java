@@ -1,3 +1,5 @@
+package Pong;
+
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 

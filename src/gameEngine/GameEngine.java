@@ -29,7 +29,8 @@ public class GameEngine extends JFrame implements Runnable {
 //        System.out.println(dt);
         drawModule.drawPixels(this.pixels);
 
-        drawModule.drawRect(this.pixels,10,10,10,10,'#');
+//        drawModule.drawRect(this.pixels,10,10,10,10,'#');
+        drawModule.drawRect(this.pixels,new Rect(10,10,10,10,'#'));
 //        drawModule.drawTriangle();
 
     }

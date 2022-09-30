@@ -41,6 +41,18 @@ public class Draw {
             }
         }
     }
+    public void drawRect(Pixels pixels,Rect rect){
+        if (rect.x < 0) return;
+        if (rect.y < 0) return;
+        if (rect.x+rect.width > this.width) return;
+        if (rect.y+rect.height > this.height) return;
+
+        for (int i = rect.y; i < rect.y+rect.height; i++) {
+            for (int j = rect.x; j < rect.x+rect.width; j++) {
+                pixels.matrix[i][j] = rect.texture;
+            }
+        }
+    }
 
     public void drawTriangle(){}
     public void drawCircle(){}

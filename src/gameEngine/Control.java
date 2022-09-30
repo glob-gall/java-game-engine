@@ -1,6 +1,5 @@
 package gameEngine;
 
-import Pong.KL;
 
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.event.KeyEvent;
@@ -11,9 +10,18 @@ public class Control {
     public int keyDown;
     public int keyUp;
     public int keyRight;
+    public int keyLeft;
     public int KeyLeft;
-    Control(Rect rect, KL keyListener, KeyEvent keyDown, KeyEvent keyUp, KeyEvent keyRight, KeyEvent KeyLeft){
+    public Control(Rect rect, int keyDown, int keyUp, int keyRight, int keyLeft){
         this.rect = rect;
+
+        this.keyDown = keyDown;
+        this.keyUp = keyUp;
+        this.keyRight = keyRight;
+        this.keyLeft = keyLeft;
+    }
+
+    public void addEventListener(KL keyListener){
         this.keyListener = keyListener;
     }
 
@@ -25,22 +33,24 @@ public class Control {
                 this.moveUp(dt);
             }else if (keyListener.isKeyPressed(this.keyRight)){
                 this.moveRight(dt);
-            }else if (keyListener.isKeyPressed(this.KeyLeft)){
+            }else if (keyListener.isKeyPressed(this.keyLeft)){
                 this.moveLeft(dt);
             }
         }
     }
     public void moveUp(double dt){
-
+        this.rect.y--;
+        System.out.println("KEY UP PRESSED");
     }
     public void moveDown(double dt){
-
+        this.rect.y++;
+        System.out.println("KEY DOWN PRESSED");
     }
     public void moveRight(double dt){
-
+        this.rect.x++;
     }
     public void moveLeft(double dt){
-
+        System.out.println("MOVE LEFT");
+        this.rect.x--;
     }
-
 }

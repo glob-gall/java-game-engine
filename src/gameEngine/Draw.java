@@ -14,6 +14,7 @@ public class Draw {
 
         this.asciiDisplay.setFont(new java.awt.Font(Constants.fontName, Font.BOLD, 10));
         frame.add(asciiDisplay);
+        asciiDisplay.addKeyListener(frame.getKeyListeners()[0]);
     }
 
     public void drawPixels(Pixels pixels){
@@ -27,6 +28,12 @@ public class Draw {
         }
 
         this.asciiDisplay.setText(txt.toString());
+    }
+    public void clearPixels(Pixels pixels){
+        for (int i = 0; i < this.height; i++)
+            for (int j = 0; j < this.width; j++)
+                pixels.matrix[i][j] = '_';
+
     }
 
     public void drawRect(Pixels pixels,int x, int y,int width, int height, char texture){

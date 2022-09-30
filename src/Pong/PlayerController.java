@@ -26,8 +26,6 @@ public class PlayerController {
             }else if(keyListener.isKeyPressed(KeyEvent.VK_UP)){
                 this.moveUp(dt);
             }
-        }else {
-
         }
     }
 

@@ -7,8 +7,7 @@ public class Main {
 //        Thread t1 = new Thread(window);
 //        t1.start();
 
-        Constants values = new Constants(800,600,"Pong");
-        GameEngine gm = new GameEngine(values);
+        GameEngine gm = new GameEngine();
         Thread t1 = new Thread(gm);
         t1.start();
     }

@@ -7,18 +7,26 @@ import java.awt.event.KeyEvent;
 public class Control {
     public Rect rect;
     public KL keyListener;
+    public Collision collision;
     public int keyDown;
     public int keyUp;
     public int keyRight;
     public int keyLeft;
-    public int KeyLeft;
-    public Control(Rect rect, int keyDown, int keyUp, int keyRight, int keyLeft){
+    public boolean hasCollision;
+
+    public Control(Rect rect, int keyDown, int keyUp, int keyRight, int keyLeft, boolean hasCollision){
         this.rect = rect;
 
         this.keyDown = keyDown;
         this.keyUp = keyUp;
         this.keyRight = keyRight;
         this.keyLeft = keyLeft;
+        this.hasCollision = hasCollision;
+    }
+
+    public void setCollision(Collision collision) {
+        this.collision = collision;
+        this.hasCollision = true;
     }
 
     public void addEventListener(KL keyListener){
@@ -39,18 +47,23 @@ public class Control {
         }
     }
     public void moveUp(double dt){
-        this.rect.y--;
-        System.out.println("KEY UP PRESSED");
+        if (!this.hasCollision || this.collision.canMoveUp(this.rect)){
+            this.rect.y--;
+        }
     }
     public void moveDown(double dt){
-        this.rect.y++;
-        System.out.println("KEY DOWN PRESSED");
+        if (!this.hasCollision || this.collision.canMoveDown(this.rect)){
+            this.rect.y++;
+        }
     }
     public void moveRight(double dt){
-        this.rect.x++;
+        if (!this.hasCollision || this.collision.canMoveRight(this.rect)){
+            this.rect.x++;
+        }
     }
     public void moveLeft(double dt){
-        System.out.println("MOVE LEFT");
-        this.rect.x--;
+        if (!this.hasCollision || this.collision.canMoveLeft(this.rect)){
+            this.rect.x--;
+        }
     }
 }

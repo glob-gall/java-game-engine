@@ -18,8 +18,14 @@ public class GameEngine extends JFrame implements Runnable {
 
         this.controllers = controllers;
 
-        for (int i = 0; i < controllers.length; i++)
+        for (int i = 0; i < controllers.length; i++){
             controllers[i].addEventListener(this.keyListener);
+            if (controllers[i].hasCollision){
+                controllers[i].setCollision(new Collision(this.pixels));
+            }
+        }
+
+
 
         this.rects = rects;
 

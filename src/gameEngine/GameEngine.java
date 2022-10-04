@@ -8,11 +8,13 @@ public class GameEngine extends JFrame implements Runnable {
     public Draw drawModule;
     public Control[] controllers;
     public Rect[] rects;
+    public Circle[] circles;
+    public Triangle[] triangles;
     public Pixels pixels = new Pixels();
     public int width,height;
     public int count=0;
 
-    public GameEngine(Control[] controllers,Rect[] rects){
+    public GameEngine(Control[] controllers,Rect[] rects, Triangle[] triangles, Circle[] circles){
         this.width = Constants.SCREEN_WIDTH;
         this.height = Constants.SCREEN_HEIGHT;
 
@@ -28,6 +30,8 @@ public class GameEngine extends JFrame implements Runnable {
 
 
         this.rects = rects;
+        this.triangles = triangles;
+        this.circles = circles;
 
         this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         this.setTitle(Constants.SCREEN_TITLE);
@@ -44,6 +48,8 @@ public class GameEngine extends JFrame implements Runnable {
         drawModule.clearPixels(this.pixels);
         for (int i = 0; i < this.rects.length; i++) {
             drawModule.drawRect(this.pixels,this.rects[i]);
+            drawModule.drawTriangle(this.pixels, this.triangles[i]);
+            drawModule.drawCircle(this.pixels, this.circles[i]);
         }
         drawModule.drawPixels(this.pixels);
 

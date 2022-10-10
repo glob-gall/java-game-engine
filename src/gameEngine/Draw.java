@@ -56,25 +56,22 @@ public class Draw {
         if (triangle.x + triangle.height > this.width) return;
         if (triangle.y + triangle.height > this.height) return;
 
+        int y = triangle.y-1;
         int x = triangle.x;
-        int y = triangle.y;
 
-        for (int i = 1; i <= triangle.height; i++) {
-            for (int j = 1; j <= triangle.height - i; j++) {
-                pixels.matrix[x][y] = Constants.BG_CHAR;
-                y++;
+        System.out.println("X:"+x+" Y:"+y+"w:"+triangle.width+" h:"+triangle.height);
+
+        int from = x;
+        int to = x+triangle.width;
+
+        for (int i = y+triangle.height; i > y; i--) {
+            for (int j = from; j < to; j++) {
+                pixels.matrix[i][j] = triangle.texture;
             }
-            for (int k = 1; k <= i; k++) {
-                pixels.matrix[x][y] = triangle.texture;
-                y++;
-            }
-            for (int l = i - 1; l >= 1; l--) {
-                pixels.matrix[x][y] = triangle.texture;
-                y++;
-            }
-            y = triangle.y;
-            x++;
+            from++;
+            to--;
         }
+
     }
 
     public void drawCircle(Pixels pixels, Circle circle) {

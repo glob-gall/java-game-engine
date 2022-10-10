@@ -8,7 +8,7 @@ public class Triangle extends Shape{
         this.y = y;
         this.height = height;
         this.texture = texture;
-        this.width =(2*height) ;
+        this.width = height + (height-1) ;
     }
 
 }

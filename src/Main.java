@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Main {
     public static void main(String[] args){
 
-        Rect objeto1 = new Rect(10,5,20,5,'#');
+        Rect objeto1 = new Rect(50,5,20,5,'#');
         Control controlRect1 = new  Control(objeto1, KeyEvent.VK_DOWN,KeyEvent.VK_UP,KeyEvent.VK_RIGHT,KeyEvent.VK_LEFT,true);
 
         Triangle objeto3 = new Triangle(20, 30, 4, '&');

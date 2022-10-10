@@ -1,6 +1,6 @@
 package gameEngine;
 
-public class Triangle {
+public class Triangle extends Shape{
     public int x,y,height;
     public char texture;
 
@@ -9,6 +9,7 @@ public class Triangle {
         this.y = y;
         this.height = height;
         this.texture = texture;
+        this.width = (2*height);
     }
 
 }

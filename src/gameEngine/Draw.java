@@ -33,21 +33,8 @@ public class Draw {
     public void clearPixels(Pixels pixels) {
         for (int i = 0; i < this.height; i++)
             for (int j = 0; j < this.width; j++)
-                pixels.matrix[i][j] = '.';
+                pixels.matrix[i][j] = Constants.BG_CHAR;
 
-    }
-
-    public void drawRect(Pixels pixels, int x, int y, int width, int height, char texture) {
-        if (x < 0) return;
-        if (y < 0) return;
-        if (x + width > this.width) return;
-        if (y + height > this.height) return;
-
-        for (int i = y; i < y + height; i++) {
-            for (int j = x; j < x + width; j++) {
-                pixels.matrix[i][j] = texture;
-            }
-        }
     }
 
     public void drawRect(Pixels pixels, Rect rect) {
@@ -80,7 +67,7 @@ public class Draw {
 
         for (int i = 1; i <= triangle.height; i++) {
             for (int j = 1; j <= triangle.height - i; j++) {
-                pixels.matrix[x][y] = '.';
+                pixels.matrix[x][y] = Constants.BG_CHAR;
                 y++;
             }
             for (int k = 1; k <= i; k++) {

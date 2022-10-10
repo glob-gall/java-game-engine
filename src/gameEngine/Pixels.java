@@ -11,7 +11,7 @@ public class Pixels {
 
         for (int i = 0; i < Constants.PIXELS_HEIGHT; i++)
             for (int j = 0; j < Constants.PIXELS_WIDTH; j++)
-                matrix[i][j] = '_';
+                matrix[i][j] = Constants.BG_CHAR;
 
         this.matrix = matrix;
     }

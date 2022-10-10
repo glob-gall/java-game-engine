@@ -5,9 +5,7 @@ import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.event.KeyEvent;
 
 public class Control {
-    public Rect rect;
-    public Triangle triangle;
-    public Circle circle;
+    public Shape rect;
     public KL keyListener;
     public Collision collision;
     public int keyDown;
@@ -16,10 +14,8 @@ public class Control {
     public int keyLeft;
     public boolean hasCollision;
 
-    public Control(Rect rect, int keyDown, int keyUp, int keyRight, int keyLeft, boolean hasCollision){
+    public Control(Shape rect, int keyDown, int keyUp, int keyRight, int keyLeft, boolean hasCollision){
         this.rect = rect;
-        this.triangle = null;
-        this.circle = null;
 
         this.keyDown = keyDown;
         this.keyUp = keyUp;
@@ -28,29 +24,6 @@ public class Control {
         this.hasCollision = hasCollision;
     }
 
-    public Control(Triangle triangle, int keyDown, int keyUp, int keyRight, int keyLeft, boolean hasCollision){
-        this.triangle = triangle;
-        this.circle = null;
-        this.rect = null;
-
-        this.keyDown = keyDown;
-        this.keyUp = keyUp;
-        this.keyRight = keyRight;
-        this.keyLeft = keyLeft;
-        this.hasCollision = hasCollision;
-    }
-
-    public Control(Circle circle, int keyDown, int keyUp, int keyRight, int keyLeft, boolean hasCollision){
-        this.circle = circle;
-        this.triangle = null;
-        this.rect = null;
-
-        this.keyDown = keyDown;
-        this.keyUp = keyUp;
-        this.keyRight = keyRight;
-        this.keyLeft = keyLeft;
-        this.hasCollision = hasCollision;
-    }
 
     public void setCollision(Collision collision) {
         this.collision = collision;
@@ -80,31 +53,11 @@ public class Control {
                 this.rect.y--;
             }
         }
-        if (this.triangle != null){
-            if (!this.hasCollision || this.collision.canMoveUp(this.triangle)){
-                this.triangle.y--;
-            }
-        }
-        if (this.circle != null) {
-            if (!this.hasCollision || this.collision.canMoveUp(this.circle)) {
-                this.circle.y--;
-            }
-        }
     }
     public void moveDown(double dt){
         if (this.rect != null){
             if (!this.hasCollision || this.collision.canMoveDown(this.rect)){
                 this.rect.y++;
-            }
-        }
-        if (this.triangle != null){
-            if (!this.hasCollision || this.collision.canMoveDown(this.triangle)){
-                this.triangle.y++;
-            }
-        }
-        if (this.circle != null){
-            if (!this.hasCollision || this.collision.canMoveDown(this.circle)){
-                this.circle.y++;
             }
         }
     }
@@ -114,31 +67,11 @@ public class Control {
                 this.rect.x++;
             }
         }
-        if (this.triangle != null){
-            if (!this.hasCollision || this.collision.canMoveRight(this.triangle)){
-                this.triangle.x++;
-            }
-        }
-        if (this.circle != null){
-            if (!this.hasCollision || this.collision.canMoveRight(this.circle)){
-                this.circle.x++;
-            }
-        }
     }
     public void moveLeft(double dt){
         if (this.rect != null){
             if (!this.hasCollision || this.collision.canMoveLeft(this.rect)){
                 this.rect.x--;
-            }
-        }
-        if (this.triangle != null){
-            if (!this.hasCollision || this.collision.canMoveLeft(this.triangle)){
-                this.triangle.x--;
-            }
-        }
-        if (this.circle != null){
-            if (!this.hasCollision || this.collision.canMoveLeft(this.circle)){
-                this.circle.x--;
             }
         }
     }

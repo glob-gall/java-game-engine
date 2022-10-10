@@ -6,7 +6,7 @@ public class Constants {
     public static final int SCREEN_WIDTH = 800;
     public static final int SCREEN_HEIGHT =600;
     public static final String SCREEN_TITLE = "Pong";
-
+    public static final char BG_CHAR='.';
     public static final int PIXELS_WIDTH = 126;
     public static final int PIXELS_HEIGHT = 40;
     public static final String fontName = "Roboto Mono";

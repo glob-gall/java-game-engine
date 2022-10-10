@@ -50,12 +50,6 @@ public class Draw {
         }
     }
 
-
-    public static void drawPosition(int x, int y, Pixels pixels, char texture) {
-        pixels.matrix[x][y] = texture;
-    }
-
-
     public void drawTriangle(Pixels pixels, Triangle triangle) {
         if (triangle.x < 0) return;
         if (triangle.y < 0) return;

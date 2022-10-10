@@ -11,7 +11,7 @@ public class Collision {
         if (rect.y <= 0) return false;
 
         for (int i = rect.x; i < rect.x+rect.width; i++) {
-            if (this.pixels.matrix[rect.y-1][i] != '.'){
+            if (this.pixels.matrix[rect.y-1][i] != Constants.BG_CHAR){
                 return false;
             }
         }
@@ -23,7 +23,7 @@ public class Collision {
 
 
         for (int i = rect.x; i < rect.x+rect.width; i++) {
-            if (this.pixels.matrix[rect.y+rect.height][i] != '.'){
+            if (this.pixels.matrix[rect.y+rect.height][i] != Constants.BG_CHAR){
                 return false;
             }
         }
@@ -34,7 +34,7 @@ public class Collision {
         if (rect.x+rect.width >= this.pixels.width) return false;
 
         for (int i = rect.y; i < rect.y+rect.height; i++) {
-            if (this.pixels.matrix[i][rect.x+rect.width] != '.'){
+            if (this.pixels.matrix[i][rect.x+rect.width] != Constants.BG_CHAR){
                 return false;
             }
         }
@@ -44,8 +44,7 @@ public class Collision {
         if (rect.x <= 0) return false;
 
         for (int i = rect.y; i < rect.y+rect.height; i++) {
-            System.out.println("["+rect.x+"]["+i+"]");
-            if (this.pixels.matrix[i][rect.x-1] != '.'){
+            if (this.pixels.matrix[i][rect.x-1] != Constants.BG_CHAR){
                 return false;
             }
         }

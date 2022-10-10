@@ -12,7 +12,7 @@ public class GameEngine extends JFrame implements Runnable {
     public int width,height;
     public int count=0;
 
-    public GameEngine(Control[] controllers,Rect[] rects){
+    public GameEngine(Control[] controllers,Shape[] rects){
         this.width = Constants.SCREEN_WIDTH;
         this.height = Constants.SCREEN_HEIGHT;
 
@@ -44,7 +44,10 @@ public class GameEngine extends JFrame implements Runnable {
         drawModule.clearPixels(this.pixels);
         for (int i = 0; i < this.rects.length; i++) {
             if (this.rects[i] instanceof Rect) {
-                drawModule.drawRect(this.pixels, this.rects[i]);
+                drawModule.drawRect(this.pixels, (Rect) this.rects[i]);
+            }
+            if (this.rects[i] instanceof Triangle) {
+                drawModule.drawTriangle(this.pixels, (Triangle) this.rects[i]);
             }
         }
         drawModule.drawPixels(this.pixels);

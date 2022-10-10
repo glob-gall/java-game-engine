@@ -36,6 +36,12 @@ public class Draw {
                 pixels.matrix[i][j] = Constants.BG_CHAR;
 
     }
+    public void clearPixels(Pixels pixels, char[][] mapa) {
+        for (int i = 0; i < this.height; i++)
+            for (int j = 0; j < this.width; j++)
+                pixels.matrix[i][j] = mapa[i][j];
+
+    }
 
     public void drawRect(Pixels pixels, Rect rect) {
         if (rect.x < 0) return;

@@ -10,7 +10,9 @@ public class GameEngine extends JFrame implements Runnable {
     public Shape[] rects;
     public Pixels pixels = new Pixels();
     public int width,height;
-    public int count=0;
+
+    private char[][] mapa;
+
 
     public GameEngine(Control[] controllers,Shape[] rects){
         this.width = Constants.SCREEN_WIDTH;
@@ -39,9 +41,14 @@ public class GameEngine extends JFrame implements Runnable {
         this.setVisible(true);
     }
 
-
     private void update(double dt){
-        drawModule.clearPixels(this.pixels);
+        if(this.mapa != null){
+            drawModule.clearPixels(this.pixels,mapa);
+        }else{
+            drawModule.clearPixels(this.pixels);
+        }
+
+
         for (int i = 0; i < this.rects.length; i++) {
             if (this.rects[i] instanceof Rect) {
                 drawModule.drawRect(this.pixels, (Rect) this.rects[i]);
@@ -73,5 +80,9 @@ public class GameEngine extends JFrame implements Runnable {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public void setMapa(char[][] mapa) {
+        this.mapa = mapa;
     }
 }

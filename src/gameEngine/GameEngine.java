@@ -49,6 +49,9 @@ public class GameEngine extends JFrame implements Runnable {
             if (this.rects[i] instanceof Triangle) {
                 drawModule.drawTriangle(this.pixels, (Triangle) this.rects[i]);
             }
+            if (this.rects[i] instanceof Circle) {
+                drawModule.drawCircle(this.pixels, (Circle) this.rects[i]);
+            }
         }
         drawModule.drawPixels(this.pixels);
 

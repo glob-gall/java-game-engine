@@ -59,8 +59,6 @@ public class Draw {
         int y = triangle.y-1;
         int x = triangle.x;
 
-        System.out.println("X:"+x+" Y:"+y+"w:"+triangle.width+" h:"+triangle.height);
-
         int from = x;
         int to = x+triangle.width;
 
@@ -75,8 +73,13 @@ public class Draw {
     }
 
     public void drawCircle(Pixels pixels, Circle circle) {
+        if (circle.x < 0) return;
+        if (circle.y < 0) return;
+        if (circle.x + circle.width > this.width) return;
+        if (circle.y + circle.height > this.height) return;
+
         int r = circle.rad;
-        int a = circle.x, b = circle.y;
+        int b = circle.x+circle.rad, a = circle.y+circle.rad;
         // whitespace
         int s = 3;
         // print area

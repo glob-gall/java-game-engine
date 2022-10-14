@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Main {
     public static void main(String[] args){
 
-        Rect objeto1 = new Rect(1,37,3,3,'#');
+        Rect objeto1 = new Rect(1,37,3,3,'@');
         Control controlRect1 = new  Control(objeto1, KeyEvent.VK_DOWN,KeyEvent.VK_UP,KeyEvent.VK_RIGHT,KeyEvent.VK_LEFT,true);
 //
 //        Triangle objeto3 = new Triangle(20, 30, 4, '&');
@@ -31,9 +31,7 @@ public class Main {
 
 
         GameEngine gm = new GameEngine(controllers,rects,events);
-        Mapa1 mp1 = new Mapa1();
 
-        gm.setMapa(mp1.mapa);
 
         Thread t1 = new Thread(gm);
         t1.start();

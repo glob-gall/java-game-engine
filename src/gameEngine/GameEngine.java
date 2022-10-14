@@ -1,7 +1,9 @@
 package gameEngine;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
-import java.awt.event.KeyEvent;
+import java.io.File;
 
 public class GameEngine extends JFrame implements Runnable {
     public KL keyListener = new KL();
@@ -44,6 +46,8 @@ public class GameEngine extends JFrame implements Runnable {
 
         this.drawModule = new Draw(this);
         this.setVisible(true);
+
+
     }
 
     private void update(double dt){
@@ -93,5 +97,9 @@ public class GameEngine extends JFrame implements Runnable {
 
     public void setMapa(char[][] mapa) {
         this.mapa = mapa;
+    }
+
+    public char[][] getMapa() {
+        return mapa;
     }
 }

@@ -12,14 +12,15 @@ public class GameEngine extends JFrame implements Runnable {
     public int width,height;
 
     private char[][] mapa;
+    private Event[] events;
 
 
-    public GameEngine(Control[] controllers,Shape[] rects){
+    public GameEngine(Control[] controllers,Shape[] rects, Event[] events){
+
         this.width = Constants.SCREEN_WIDTH;
         this.height = Constants.SCREEN_HEIGHT;
 
         this.controllers = controllers;
-
         for (int i = 0; i < controllers.length; i++){
             controllers[i].addEventListener(this.keyListener);
             if (controllers[i].hasCollision){
@@ -27,7 +28,11 @@ public class GameEngine extends JFrame implements Runnable {
             }
         }
 
-
+        Event[] auxEvents = events;
+        for (int i = 0; i < events.length; i++) {
+            auxEvents[i].setGm(this);
+        }
+        this.events = auxEvents;
 
         this.rects = rects;
 
@@ -64,6 +69,10 @@ public class GameEngine extends JFrame implements Runnable {
 
         for (int i = 0; i < controllers.length; i++)
             controllers[i].update(dt);
+
+        for (int i = 0; i < this.events.length; i++) {
+            this.events[i].exec();
+        }
     }
 
     public void run() {

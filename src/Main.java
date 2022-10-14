@@ -24,8 +24,13 @@ public class Main {
 //        controllers[1] = controlTriangle;
 //        controllers[2] = controlCircle5;
 
+        FinalLabirintoEvent finalEvent = new FinalLabirintoEvent();
 
-        GameEngine gm = new GameEngine(controllers,rects);
+        Event[] events = new Event[1];
+        events[0] = finalEvent;
+
+
+        GameEngine gm = new GameEngine(controllers,rects,events);
         Mapa1 mp1 = new Mapa1();
 
         gm.setMapa(mp1.mapa);

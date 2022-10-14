@@ -37,16 +37,12 @@ public class Control {
     public void update(double dt){
         if(keyListener != null ){
             if(keyListener.isKeyPressed(this.keyDown)){ //KeyEvent.VK_DOWN
-                System.out.println("down");
                 this.moveDown(dt);
             }else if(keyListener.isKeyPressed(this.keyUp)){ //KeyEvent.VK_UP
-                System.out.println("up");
                 this.moveUp(dt);
             }else if (keyListener.isKeyPressed(this.keyRight)){
-                System.out.println("right");
                 this.moveRight(dt);
             }else if (keyListener.isKeyPressed(this.keyLeft)){
-                System.out.println("left");
                 this.moveLeft(dt);
             }
         }
